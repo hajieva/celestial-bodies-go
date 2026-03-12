@@ -1,0 +1,107 @@
+[
+    {
+        "name": "Earth",
+        "type": "Terrestrial",
+        "mass_kg": 5.9e24,
+        "diamter_km": 12742,
+        "distance_from_sun_km": 149.6e6,
+        "orbital_period_days": 365.25,
+        "rotation_period_hours" :24,
+        "atmosphere": [
+            {"gas": "Nitrogen", "percentage": 78.08},
+            {"gas": "Oxygen", "percentage": 20.95},
+            {"gas": "Argon", "percentage": 0.93},
+            {"gas": "Carbon Dioxide", "percentage": 0.04}
+        ],
+        "temperature": {
+            "min_celsius": -88,
+            "max_celsius": 58,
+            "mean_celsius": 15
+        },
+        "moons_count": 1,
+        "description": "Earth is the third planet from the Sun and the only astronomical object known to harbor life. It has a diverse climate and a rich variety of ecosystems."
+    },
+    {
+        "name": "Mars",
+        "type": "Terrestrial",
+        "mass_kg": 6.39e23,
+        "diamter_km": 6779,
+        "distance_from_sun_km": 227.9e6,
+        "orbital_period_days": 687,
+        "rotation_period_hours" :24.6,
+        "atmosphere": [
+            {"gas": "Carbon Dioxide", "percentage": 95.32},
+            {"gas": "Nitrogen", "percentage": 2.7},
+            {"gas": "Argon", "percentage": 1.6},
+            {"gas": "Oxygen", "percentage": 0.13}
+        ],
+        "temperature": {
+            "min_celsius": -125,
+            "max_celsius": 20,
+            "mean_celsius": -60
+        },
+        "moons_count": 2,
+        "description": "Mars is the fourth planet from the Sun and is often referred to as the 'Red Planet' due to its reddish appearance. It has a thin atmosphere and is home to the tallest volcano and the deepest canyon in the solar system."
+    },
+    {
+        "name": "Jupiter",
+        "type": "Gas Giant",
+        "mass_kg": 1.898e27,
+        "diamter_km": 139820,
+        "distance_from_sun_km": 778.5e6,
+        "orbital_period_days": 4333,
+        "rotation_period_hours" :9.9,
+        "atmosphere": [
+            {"gas": "Hydrogen", "percentage": 90},
+            {"gas": "Helium", "percentage": 10}
+        ],
+        "temperature": {
+            "min_celsius": -145,
+            "max_celsius": -120,
+            "mean_celsius": -130
+        },
+        "moons_count": 79,
+        "description": "Jupiter is the largest planet in our solar system and is known for its Great Red Spot, a giant storm that has been raging for centuries. It has a strong magnetic field and dozens of moons, including the four large Galilean moons."
+    },
+    {
+        "name": "Saturn",
+        "type": "Gas Giant",
+        "mass_kg": 5.683e26,
+        "diamter_km": 116460,
+        "distance_from_sun_km": 1.43e9,
+        "orbital_period_days": 10759,
+        "rotation_period_hours" :10.7,
+        "atmosphere": [
+            {"gas": "Hydrogen", "percentage": 96},
+            {"gas": "Helium", "percentage": 3},
+            {"gas": "Methane", "percentage": 0.4}
+        ],
+        "temperature": {
+            "min_celsius": -178,
+            "max_celsius": -130,
+            "mean_celsius": -150
+        },
+        "moons_count": 82,
+        "description": "Saturn is the second-largest planet in our solar system and is famous for its stunning ring system, which is made up of ice and rock particles. It has a large number of moons, including Titan, which is larger than the planet Mercury."
+    },
+    {
+        "name": "Venus",
+        "type": "Terrestrial",
+        "mass_kg": 4.867e24,
+        "diamter_km": 12104,
+        "distance_from_sun_km": 108.2e6,
+        "orbital_period_days": 225,
+        "rotation_period_hours" :-243,
+        "atmosphere": [
+            {"gas": "Carbon Dioxide", "percentage": 96.5},
+            {"gas": "Nitrogen", "percentage": 3.5}
+        ],
+        "temperature": {
+            "min_celsius": 462,
+            "max_celsius": 462,
+            "mean_celsius": 462
+        },
+        "moons_count": 0,
+        "description": "Venus is the second planet from the Sun and is often called Earth's 'sister planet' due to their similar size and composition. However, Venus has a thick, toxic atmosphere that traps heat, making it the hottest planet in our solar system."
+    }
+]
