@@ -1,3 +1,3 @@
 module github.com/hajieva/celestial-bodies-go
 
-go 1.18
+go 1.26
