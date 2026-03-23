@@ -13,9 +13,6 @@ import (
 	//"github.com/spf13/cobra"
 )
 
-var planets []data.Planet
-var moons []data.Moon
-
 //go:embed planets.json moons.json
 var celestialFiles embed.FS
 
@@ -31,7 +28,7 @@ func loadMoons() ([]data.Moon, error) {
 	if err != nil {
 		return nil, fmt.Errorf("decoding moons.json: %w", err)
 	}
-	log.Printf("Moons loaded: %d\n", len(moons))
+	log.Printf("Moons loaded: %d", len(moons))
 	return moons, nil
 
 }
@@ -48,12 +45,12 @@ func loadPlanets() ([]data.Planet, error) {
 	if err != nil {
 		return nil, fmt.Errorf("decoding planets.json: %w", err)
 	}
-	fmt.Printf("Planets loaded: %d\n", len(planets))
+	log.Printf("Planets loaded: %d\n", len(planets))
 	return planets, nil
 }
 
 func main() {
-	fmt.Println("Celestial API")
+	log.Println("Celestial API")
 	planets, err := loadPlanets()
 	if err != nil {
 		log.Fatalf("Error loading planet and moon data: %v", err)
@@ -62,7 +59,7 @@ func main() {
 	if err != nil {
 		log.Fatalf("Error loading moons: %v", err)
 	}
-	fmt.Printf("Loaded %d planets and %d moons\n", len(planets), len(moons))
+	log.Printf("Loaded %d planets and %d moons\n", len(planets), len(moons))
 	srv := server.NewServer(planets, moons)
 	if err := http.ListenAndServe(":8080", srv.Handler()); err != nil {
 		log.Fatalf("Server failed to start: %v", err)
