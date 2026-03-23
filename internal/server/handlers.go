@@ -8,6 +8,7 @@ import (
 	"github.com/hajieva/celestial-bodies-go/internal/data"
 )
 
+// getPlanets retrieves all planets and returns them as JSON.
 func (s *Server) getPlanets(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "application/json")
 	if err := json.NewEncoder(w).Encode(s.planets); err != nil {
@@ -15,6 +16,7 @@ func (s *Server) getPlanets(w http.ResponseWriter, r *http.Request) {
 	}
 }
 
+// getPlanetbyName retrieves a planet by name and returns it as JSON.
 func (s *Server) getPlanetbyName(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "application/json")
 	name := r.PathValue("name")
@@ -29,6 +31,8 @@ func (s *Server) getPlanetbyName(w http.ResponseWriter, r *http.Request) {
 	}
 	http.Error(w, "Planet not found", http.StatusNotFound)
 }
+
+// getPlanetMoons retrieves all moons for a specific planet and returns them as JSON.
 func (s *Server) getPlanetMoons(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "application/json")
 	planetName := r.PathValue("name")
@@ -51,6 +55,7 @@ func (s *Server) getPlanetMoons(w http.ResponseWriter, r *http.Request) {
 	http.Error(w, "Planet  not found", http.StatusNotFound)
 }
 
+// getMoon retrieves a moon by name and returns it as JSON.
 func (s *Server) getMoon(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "application/json")
 	moonName := r.PathValue("name")

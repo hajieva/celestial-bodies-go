@@ -6,15 +6,14 @@ import (
 	"github.com/hajieva/celestial-bodies-go/internal/data"
 )
 
-// Server object holds planet moon data
-// and mux is a router bridges incoming requests to handlers
+// Server represents an HTTP server for celestial bodies data.
 type Server struct {
 	router  *http.ServeMux
 	planets []data.Planet
 	moons   []data.Moon
 }
 
-// constructor for server
+// NewServer creates and returns a new Server instance with the provided planets and moons.
 func NewServer(planets []data.Planet, moons []data.Moon) *Server {
 	s := &Server{
 		planets: planets,
@@ -24,6 +23,8 @@ func NewServer(planets []data.Planet, moons []data.Moon) *Server {
 	s.routes()
 	return s
 }
+
+// routes registers all HTTP route handlers for the server.
 func (s *Server) routes() {
 	s.router.HandleFunc("GET /bodies/planets", s.getPlanets)
 	s.router.HandleFunc("GET /bodies/planets/{name}", s.getPlanetbyName)
@@ -31,6 +32,8 @@ func (s *Server) routes() {
 	s.router.HandleFunc("GET /bodies/moons/{name}", s.getMoon)
 
 }
+
+// Handler returns the HTTP handler for the server.
 func (s *Server) Handler() http.Handler {
 	return (s.router)
 }
