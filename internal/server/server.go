@@ -8,9 +8,9 @@ import (
 
 // Server represents an HTTP server for celestial bodies data.
 type Server struct {
-	router  *http.ServeMux
 	planets []data.Planet
 	moons   []data.Moon
+	router  *http.ServeMux
 }
 
 // NewServer creates and returns a new Server instance with the provided planets and moons.

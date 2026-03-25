@@ -67,5 +67,6 @@ func (s *Server) getMoon(w http.ResponseWriter, r *http.Request) {
 			return
 		}
 	}
+
 	http.Error(w, "Moon not found", http.StatusNotFound)
 }
