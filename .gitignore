@@ -1,0 +1,28 @@
+# Build artifacts
+/celes
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+
+# Test and coverage output
+*.test
+*.out
+coverage.out
+
+# Go workspace files
+go.work
+go.work.sum
+
+# Local environment files
+.env
+.env.*
+!.env.example
+
+# Editor and OS cruft
+.DS_Store
+.idea/
+.vscode/settings.json
+.vscode/launch.json
+.vscode/tasks.json
