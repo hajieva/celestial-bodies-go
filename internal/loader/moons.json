@@ -5,7 +5,7 @@
         "mass_kg": 7.35e22,
         "diameter_km": 3474,
         "orbital_period_days": 27.3,
-        "description" : "The Moon is Earht's only natural satellite and is the fifth largest moon in the solar system. It has a significant impact on Earth, influencing tides and stabilizing the planet's axial tilt."
+        "description" : "The Moon is Earth's only natural satellite and is the fifth largest moon in the solar system. It has a significant impact on Earth, influencing tides and stabilizing the planet's axial tilt."
     },
     {
         "name": "Phobos",

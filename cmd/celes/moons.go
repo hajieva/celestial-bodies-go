@@ -19,9 +19,10 @@ var moonsCmd = &cobra.Command{
 	Args:  cobra.ExactArgs(1),
 	RunE: func(cmd *cobra.Command, args []string) error {
 		planet := args[0]
-		resp, err := http.Get("http://localhost:8080/bodies/planets/" + planet + "/moons")
+		url := fmt.Sprintf("%s/bodies/planets/%s/moons", serverAddr, planet)
+		resp, err := http.Get(url)
 		if err != nil {
-			return err
+			return fmt.Errorf("failed to fetch moons from %s: %w", url, err)
 		}
 		defer resp.Body.Close()
 

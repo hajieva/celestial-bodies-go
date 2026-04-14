@@ -9,12 +9,9 @@ import (
 	"github.com/hajieva/celestial-bodies-go/internal/data"
 )
 
-// for diving deeper into the comment
-//
 //go:embed planets.json moons.json
 var celestialFiles embed.FS
 
-// LoadPlanets reads the planets.json file and decodes it into a slice of Planet structs.
 func LoadPlanets() ([]data.Planet, error) {
 	file, err := celestialFiles.ReadFile("planets.json")
 	if err != nil {
@@ -22,9 +19,6 @@ func LoadPlanets() ([]data.Planet, error) {
 
 	}
 	var planets []data.Planet
-	//bytesReader := bytes.NewReader(file)
-	//decoder := json.NewDecoder(bytesReader)
-	//err2:= decoder.Decode(&planets)
 
 	if err := json.NewDecoder(bytes.NewReader(file)).Decode(&planets); err != nil {
 		return nil, fmt.Errorf("decoding planets.json: %w", err)
@@ -32,7 +26,6 @@ func LoadPlanets() ([]data.Planet, error) {
 	return planets, nil
 }
 
-// LoadMoons reads the moons.json file and decodes it into a slice of Moon structs.
 func LoadMoons() ([]data.Moon, error) {
 	file, err := celestialFiles.ReadFile("moons.json")
 	if err != nil {

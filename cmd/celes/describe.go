@@ -25,9 +25,10 @@ var describePlanetCmd = &cobra.Command{
 	Args:  cobra.ExactArgs(1),
 	RunE: func(cmd *cobra.Command, args []string) error {
 		name := args[0]
-		resp, err := http.Get("http://localhost:8080/bodies/planets/" + name)
+		url := fmt.Sprintf("%s/bodies/planets/%s", serverAddr, name)
+		resp, err := http.Get(url)
 		if err != nil {
-			return err
+			return fmt.Errorf("failed to fetch planet from %s: %w", url, err)
 		}
 		defer resp.Body.Close()
 
@@ -49,9 +50,10 @@ var describeMoonCmd = &cobra.Command{
 	Args:  cobra.ExactArgs(1),
 	RunE: func(cmd *cobra.Command, args []string) error {
 		name := args[0]
-		resp, err := http.Get("http://localhost:8080/bodies/moons/" + name)
+		url := fmt.Sprintf("%s/bodies/moons/%s", serverAddr, name)
+		resp, err := http.Get(url)
 		if err != nil {
-			return err
+			return fmt.Errorf("failed to fetch moon from %s: %w", url, err)
 		}
 		defer resp.Body.Close()
 

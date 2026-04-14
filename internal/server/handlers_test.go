@@ -28,7 +28,6 @@ func TestGetPlanets(t *testing.T) {
 	if len(got) != 2 {
 		t.Errorf("Expected 2 planets, got %d", len(got))
 	}
-
 }
 func TestGetPlanetbyName(t *testing.T) {
 	planets := []data.Planet{{Name: "Earth"}}
@@ -70,6 +69,44 @@ func TestGetPlanetMoons_noPlanets_emptyarray(t *testing.T) {
 		t.Errorf("Expected empty array, got null")
 	}
 }
+
+func TestGetMoon(t *testing.T) {
+	srv := NewServer(nil, []data.Moon{{Name: "Europa", ParentPlanet: "Jupiter"}})
+
+	req := httptest.NewRequest("GET", "/bodies/moons/Europa", nil)
+	req.SetPathValue("name", "Europa")
+
+	w := httptest.NewRecorder()
+	srv.getMoon(w, req)
+
+	if w.Code != http.StatusOK {
+		t.Errorf("Expected status 200, got %d", w.Code)
+	}
+
+	var got data.Moon
+	if err := json.NewDecoder(w.Body).Decode(&got); err != nil {
+		t.Fatalf("Failed to decode response: %v", err)
+	}
+
+	if got.Name != "Europa" {
+		t.Errorf("Expected moon Europa, got %q", got.Name)
+	}
+}
+
+func TestGetMoon_NotFound(t *testing.T) {
+	srv := NewServer(nil, []data.Moon{})
+
+	req := httptest.NewRequest("GET", "/bodies/moons/Titan", nil)
+	req.SetPathValue("name", "Titan")
+
+	w := httptest.NewRecorder()
+	srv.getMoon(w, req)
+
+	if w.Code != http.StatusNotFound {
+		t.Errorf("Expected status 404, got %d", w.Code)
+	}
+}
+
 func TestMethodControl(t *testing.T) {
 	srv := NewServer(nil, nil)
 
